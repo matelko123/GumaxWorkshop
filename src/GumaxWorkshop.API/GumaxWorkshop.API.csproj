@@ -11,4 +11,9 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\GumaxWorkshop.Application\GumaxWorkshop.Application.csproj" />
+      <ProjectReference Include="..\GumaxWorkshop.Infrastructure\GumaxWorkshop.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
