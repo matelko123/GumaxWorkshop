@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E34B4D2F-E486-4091-A827-F54FECE06CFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumaxWorkshop.API", "src\GumaxWorkshop.API\GumaxWorkshop.API.csproj", "{C8883F43-EC77-4B92-BDAB-0F682A9FEDE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumaxWorkshop.Application", "src\GumaxWorkshop.Application\GumaxWorkshop.Application.csproj", "{5EA3DB16-7AAC-48EB-B7F1-E521A7ABC495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumaxWorkshop.Domain", "src\GumaxWorkshop.Domain\GumaxWorkshop.Domain.csproj", "{61FC3F08-84BF-482E-98DA-208C1B0B086F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumaxWorkshop.Infrastructure", "src\GumaxWorkshop.Infrastructure\GumaxWorkshop.Infrastructure.csproj", "{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8883F43-EC77-4B92-BDAB-0F682A9FEDE7} = {0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}
+		{5EA3DB16-7AAC-48EB-B7F1-E521A7ABC495} = {0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}
+		{61FC3F08-84BF-482E-98DA-208C1B0B086F} = {0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}
+		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7} = {0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8883F43-EC77-4B92-BDAB-0F682A9FEDE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8883F43-EC77-4B92-BDAB-0F682A9FEDE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8883F43-EC77-4B92-BDAB-0F682A9FEDE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8883F43-EC77-4B92-BDAB-0F682A9FEDE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA3DB16-7AAC-48EB-B7F1-E521A7ABC495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA3DB16-7AAC-48EB-B7F1-E521A7ABC495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA3DB16-7AAC-48EB-B7F1-E521A7ABC495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA3DB16-7AAC-48EB-B7F1-E521A7ABC495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FC3F08-84BF-482E-98DA-208C1B0B086F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FC3F08-84BF-482E-98DA-208C1B0B086F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FC3F08-84BF-482E-98DA-208C1B0B086F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FC3F08-84BF-482E-98DA-208C1B0B086F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
