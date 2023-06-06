@@ -2,7 +2,7 @@
 
 public class NIP
 {
-    private readonly string _value;
+    public string Value { get; set; }
 
     public NIP(string value)
     {
@@ -12,16 +12,16 @@ public class NIP
         if (!IsValidNIP(value))
             throw new ArgumentException("Invalid NIP format.", nameof(value));
 
-        _value = value;
+        Value = value;
     }
 
-    public override string ToString() => _value;
+    public override string ToString() => Value;
 
     public override bool Equals(object? obj)
     {
         if (obj is NIP otherNIP)
         {
-            return _value == otherNIP._value;
+            return Value == otherNIP.Value;
         }
 
         return false;
@@ -29,12 +29,12 @@ public class NIP
 
     protected bool Equals(NIP other)
     {
-        return _value == other._value;
+        return Value == other.Value;
     }
 
     public override int GetHashCode()
     {
-        return _value.GetHashCode();
+        return Value.GetHashCode();
     }
 
     private bool IsValidNIP(string value) 

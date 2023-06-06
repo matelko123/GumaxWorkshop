@@ -26,5 +26,10 @@ public class ClientConfiguration : IEntityTypeConfiguration<Client>
         builder.Property(c => c.PhoneNumber)
             .IsRequired()
             .HasMaxLength(15);
+
+        builder.Property(c => c.NIP)
+            .HasConversion(
+            client => client.Value,
+            value => new Domain.ValueObjects.NIP(value));
     }
 }
