@@ -19,5 +19,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseErrorHandler();
 app.UseEndpoints<Program>();
 app.Run();
