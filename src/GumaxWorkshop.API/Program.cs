@@ -1,3 +1,4 @@
+using GumaxWorkshop.API.Extensions;
 using GumaxWorkshop.Application;
 using GumaxWorkshop.Infrastructure;
 
@@ -18,4 +19,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseEndpoints<Program>();
 app.Run();
