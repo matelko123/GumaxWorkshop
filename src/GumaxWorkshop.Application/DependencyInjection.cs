@@ -1,7 +1,5 @@
 ﻿using FluentValidation;
 using GumaxWorkshop.Application.Behaviors;
-using Mapster;
-using MapsterMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,16 +15,9 @@ public static class DependencyInjection
             config.RegisterServicesFromAssemblyContaining<IApplicationMarker>();
         });
         
-        // Mapster
-        var typeAdapterConfig = TypeAdapterConfig.GlobalSettings;
-        typeAdapterConfig.Scan(typeof(IApplicationMarker).Assembly);
-        services.AddSingleton(typeAdapterConfig);
-        services.AddScoped<IMapper, ServiceMapper>();
-        
         // FluentValidation
         services.AddValidatorsFromAssemblyContaining<IApplicationMarker>();
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-        
         return services;
     }
 }

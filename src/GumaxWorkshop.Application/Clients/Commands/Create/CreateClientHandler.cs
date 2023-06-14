@@ -1,6 +1,4 @@
-﻿using GumaxWorkshop.Domain.Entities;
-using GumaxWorkshop.Domain.Interfaces.Services;
-using MapsterMapper;
+﻿using GumaxWorkshop.Domain.Interfaces.Services;
 using MediatR;
 
 namespace GumaxWorkshop.Application.Clients.Commands.Create;
@@ -8,20 +6,19 @@ namespace GumaxWorkshop.Application.Clients.Commands.Create;
 public sealed class CreateClientCommandHandler : IRequestHandler<CreateClientCommand, CreateClientResponse>
 {
     private readonly IClientService _clientService;
-    private readonly IMapper _mapper;
 
-    public CreateClientCommandHandler(IClientService clientService, IMapper mapper)
+    public CreateClientCommandHandler(
+        IClientService clientService)
     {
         _clientService = clientService;
-        _mapper = mapper;
     }
 
     public async Task<CreateClientResponse> Handle(
         CreateClientCommand request, 
         CancellationToken cancellationToken)
     {
-        var newClient = _mapper.Map<Client>(request);
+        var newClient = request.MapToClient();
         await _clientService.CreateClientAsync(newClient, cancellationToken);
-        return _mapper.Map<CreateClientResponse>(newClient);
+        return newClient.MapToResponse();
     }
 }

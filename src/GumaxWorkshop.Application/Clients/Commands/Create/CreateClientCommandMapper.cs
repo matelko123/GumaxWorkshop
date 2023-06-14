@@ -1,17 +1,34 @@
 ﻿using GumaxWorkshop.Domain.Entities;
-using GumaxWorkshop.Domain.ValueObjects;
-using Mapster;
 
 namespace GumaxWorkshop.Application.Clients.Commands.Create;
 
-public class CreateClientCommandMapper : IRegister
+public static class CreateClientCommandMapper
 {
-    public void Register(TypeAdapterConfig config)
+    public static Client MapToClient(this CreateClientCommand command)
     {
-        config.NewConfig<CreateClientCommand, Client>()
-            .Map(c => c.NIP, s => new NIP(s.NIP));
+        return new Client
+        {
+            Id = Guid.NewGuid(),
+            Type = command.Type,
+            PhoneNumber = command.PhoneNumber,
+            FirstName = command.FirstName,
+            LastName = command.LastName,
+            Address = command.Address,
+            CompanyName = command.CompanyName,
+            NIP = command.NIP
+        };
+    }
 
-        config.NewConfig<Client, CreateClientResponse>()
-            .Map(c => c.NIP, s => s.NIP.Value);
+    public static CreateClientResponse MapToResponse(this Client client)
+    {
+        return new CreateClientResponse(
+            client.Id,
+            client.Type,
+            client.PhoneNumber,
+            client.FirstName,
+            client.LastName,
+            client.Address,
+            client.CompanyName,
+            client.NIP);
     }
 }
