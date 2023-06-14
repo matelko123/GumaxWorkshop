@@ -1,7 +1,6 @@
 ﻿using GumaxWorkshop.Application.Data;
 using GumaxWorkshop.Domain.Entities;
 using GumaxWorkshop.Domain.Interfaces.Services;
-using GumaxWorkshop.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace GumaxWorkshop.Infrastructure.Services;
@@ -17,47 +16,34 @@ public class ClientService : IClientService
 
     public async Task<IEnumerable<Client>> GetAllClientsAsync(CancellationToken cancellationToken)
     {
-        return await _applicationDbContext.Clients.ToListAsync(cancellationToken: cancellationToken);
+        return await _applicationDbContext
+            .Clients
+            .ToListAsync(cancellationToken: cancellationToken);
     }
 
     public async Task<Client?> GetClientByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _applicationDbContext
+            .Clients
+            .SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task<Client?> GetClientByNIPAsync(NIP nip, CancellationToken cancellationToken)
+    public async Task<Client?> GetClientByNIPAsync(string nip, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _applicationDbContext
+            .Clients
+            .SingleOrDefaultAsync(x => x.NIP == nip, cancellationToken);
     }
 
     public async Task<Client?> GetClientByPhoneNumberAsync(string phoneNumber, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _applicationDbContext
+            .Clients
+            .SingleOrDefaultAsync(x => x.PhoneNumber == phoneNumber, cancellationToken);
     }
 
     public async Task<Client> CreateClientAsync(Client newClient, CancellationToken cancellationToken)
     {
-        var existingClientWithSamePhoneNumber = await _applicationDbContext
-            .Clients
-            .AnyAsync(c => c.PhoneNumber == newClient.PhoneNumber, cancellationToken);
-
-        if (existingClientWithSamePhoneNumber)
-        {
-            throw new Exception("Client with that phone number already exists.");
-        }
-        
-        // TODO: Add Fluent Validation
-        if (newClient.Type == ClientType.Company && newClient.NIP != null)
-        {
-            var existingCompanyWithSameNIP = await _applicationDbContext
-                .Clients
-                .AnyAsync(c => c.NIP == newClient.NIP, cancellationToken: cancellationToken);
-            if (existingCompanyWithSameNIP)
-            {
-                throw new Exception("Client with that NIP already exists.");
-            }
-        }
-        
         await _applicationDbContext.Clients.AddAsync(newClient, cancellationToken);
         await _applicationDbContext.SaveChangesAsync(cancellationToken);
         return newClient;
