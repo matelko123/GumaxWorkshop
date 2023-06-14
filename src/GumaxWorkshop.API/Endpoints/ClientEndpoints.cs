@@ -1,5 +1,6 @@
 ﻿using GumaxWorkshop.API.Endpoints.Internal;
 using GumaxWorkshop.Application.Clients.Commands.Create;
+using GumaxWorkshop.Application.Common;
 using MediatR;
 
 namespace GumaxWorkshop.API.Endpoints;
@@ -17,10 +18,12 @@ public class ClientEndpoints : IEndpoints
         {
             var client = await sender.Send(command, cancellationToken);
             return Results.Ok(client);
+            // return TypedResults.CreatedAtRoute(client, $"{BaseRoute}/id", new { id = client.Id});
         })
             .WithName("CreateClient")
             .WithTags(Tag)
             .Accepts<CreateClientCommand>(ContentType)
-            .Produces<CreateClientResponse>(StatusCodes.Status200OK);
+            .Produces<CreateClientResponse>(StatusCodes.Status200OK)
+            .Produces<ValidationFailureResponse>(StatusCodes.Status400BadRequest);
     }
 }
