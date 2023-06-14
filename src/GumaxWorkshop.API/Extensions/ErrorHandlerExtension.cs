@@ -18,21 +18,26 @@ public static class ErrorHandlerExtension
                 
                 var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
                 if (contextFeature == null) return;
+
+                switch (contextFeature.Error)
+                {
+                    case ValidationException exception:
+                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        await context.Response.WriteAsJsonAsync(exception.Failures);
+                        break;
+                    
+                    case NotFoundException exception:
+                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        await context.Response.WriteAsync(JsonSerializer.Serialize(exception.Message));
+                        break;
+                    
+                    default:
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        var errorMessage = contextFeature.Error.GetBaseException().Message;
+                        await context.Response.WriteAsync(JsonSerializer.Serialize(errorMessage));
+                        break;
+                }
                 
-                context.Response.StatusCode = contextFeature.Error switch
-                {
-                    ValidationException => (int) HttpStatusCode.BadRequest,
-                    OperationCanceledException => (int) HttpStatusCode.ServiceUnavailable,
-                    _ => (int) HttpStatusCode.InternalServerError
-                };
-
-                var errorResponse = new
-                {
-                    statusCode = context.Response.StatusCode,
-                    message = contextFeature.Error.GetBaseException().Message
-                };
-
-                await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
             });
         });
         return app;
