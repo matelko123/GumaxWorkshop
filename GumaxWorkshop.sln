@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumaxWorkshop.Domain", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumaxWorkshop.Infrastructure", "src\GumaxWorkshop.Infrastructure\GumaxWorkshop.Infrastructure.csproj", "{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GumaxWorkshop.API.Tests.Integration", "tests\GumaxWorkshop.API.Tests.Integration\GumaxWorkshop.API.Tests.Integration.csproj", "{B99E8F16-D33C-4D05-ABD7-1019D9F495DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,7 @@ Global
 		{5EA3DB16-7AAC-48EB-B7F1-E521A7ABC495} = {0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}
 		{61FC3F08-84BF-482E-98DA-208C1B0B086F} = {0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}
 		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7} = {0EC614A7-2FD1-4EE6-8AF1-06971255EF1C}
+		{B99E8F16-D33C-4D05-ABD7-1019D9F495DB} = {E34B4D2F-E486-4091-A827-F54FECE06CFD}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C8883F43-EC77-4B92-BDAB-0F682A9FEDE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,5 +43,9 @@ Global
 		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A50FCD2-1DE6-4293-9FBE-E1AC5DC932C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99E8F16-D33C-4D05-ABD7-1019D9F495DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99E8F16-D33C-4D05-ABD7-1019D9F495DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99E8F16-D33C-4D05-ABD7-1019D9F495DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99E8F16-D33C-4D05-ABD7-1019D9F495DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
