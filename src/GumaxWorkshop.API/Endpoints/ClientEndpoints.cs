@@ -1,7 +1,9 @@
 ﻿using GumaxWorkshop.API.Endpoints.Internal;
 using GumaxWorkshop.Application.Clients.Commands.Create;
+using GumaxWorkshop.Application.Clients.DTOs;
 using GumaxWorkshop.Application.Common;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GumaxWorkshop.API.Endpoints;
 
@@ -13,7 +15,8 @@ public class ClientEndpoints : IEndpoints
 
     public static void DefineEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapPost(BaseRoute, async (CreateClientCommand command, ISender sender,
+        app.MapPost(BaseRoute, async (
+                [FromBody] CreateClientCommand command, ISender sender,
             CancellationToken cancellationToken) =>
         {
             var client = await sender.Send(command, cancellationToken);
@@ -23,7 +26,7 @@ public class ClientEndpoints : IEndpoints
             .WithName("CreateClient")
             .WithTags(Tag)
             .Accepts<CreateClientCommand>(ContentType)
-            .Produces<CreateClientResponse>(StatusCodes.Status200OK)
+            .Produces<ClientResponse>(StatusCodes.Status200OK)
             .Produces<ValidationFailureResponse>(StatusCodes.Status400BadRequest);
-    }
+        }
 }

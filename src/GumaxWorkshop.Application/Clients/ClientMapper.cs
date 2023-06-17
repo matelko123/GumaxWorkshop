@@ -1,8 +1,10 @@
-﻿using GumaxWorkshop.Domain.Entities;
+﻿using GumaxWorkshop.Application.Clients.Commands.Create;
+using GumaxWorkshop.Application.Clients.DTOs;
+using GumaxWorkshop.Domain.Entities;
 
-namespace GumaxWorkshop.Application.Clients.Commands.Create;
+namespace GumaxWorkshop.Application.Clients;
 
-public static class CreateClientCommandMapper
+public static class ClientMapper
 {
     public static Client MapToClient(this CreateClientCommand command)
     {
@@ -19,9 +21,9 @@ public static class CreateClientCommandMapper
         };
     }
 
-    public static CreateClientResponse MapToResponse(this Client client)
+    public static ClientResponse MapToResponse(this Client client)
     {
-        return new CreateClientResponse(
+        return new ClientResponse(
             client.Id,
             client.Type,
             client.PhoneNumber,

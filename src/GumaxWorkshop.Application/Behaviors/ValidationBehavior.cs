@@ -40,7 +40,7 @@ public sealed class ValidationBehavior<TRequest, TResponse>
 
         if (failures.Any())
         {        
-            throw new Exceptions.ValidationException(failures);
+            throw new Common.Exceptions.ValidationException(failures);
         }
 
         return await next();

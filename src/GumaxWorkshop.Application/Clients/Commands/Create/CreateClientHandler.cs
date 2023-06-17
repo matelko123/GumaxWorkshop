@@ -1,9 +1,10 @@
-﻿using GumaxWorkshop.Domain.Interfaces.Services;
+﻿using GumaxWorkshop.Application.Clients.DTOs;
+using GumaxWorkshop.Domain.Interfaces.Services;
 using MediatR;
 
 namespace GumaxWorkshop.Application.Clients.Commands.Create;
 
-public sealed class CreateClientCommandHandler : IRequestHandler<CreateClientCommand, CreateClientResponse>
+public sealed class CreateClientCommandHandler : IRequestHandler<CreateClientCommand, ClientResponse>
 {
     private readonly IClientService _clientService;
 
@@ -13,7 +14,7 @@ public sealed class CreateClientCommandHandler : IRequestHandler<CreateClientCom
         _clientService = clientService;
     }
 
-    public async Task<CreateClientResponse> Handle(
+    public async Task<ClientResponse> Handle(
         CreateClientCommand request, 
         CancellationToken cancellationToken)
     {

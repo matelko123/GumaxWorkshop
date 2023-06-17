@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using FluentAssertions;
 using GumaxWorkshop.Application.Clients.Commands.Create;
+using GumaxWorkshop.Application.Clients.DTOs;
 using GumaxWorkshop.Domain.Entities;
 using Xunit;
 
@@ -24,7 +25,7 @@ public class CreateEndpointTests : IClassFixture<GumaxWorkshopApiFactory>, IAsyn
         
         // Act
         var result = await httpClient.PostAsJsonAsync("/clients", requestBody);
-        var createdClient = await result.Content.ReadFromJsonAsync<CreateClientResponse>();
+        var createdClient = await result.Content.ReadFromJsonAsync<ClientResponse>();
 
         // Assert
         result.StatusCode.Should().Be(HttpStatusCode.OK);
@@ -41,7 +42,7 @@ public class CreateEndpointTests : IClassFixture<GumaxWorkshopApiFactory>, IAsyn
         
         // Act
         var result = await httpClient.PostAsJsonAsync("/clients", requestBody);
-        var createdClient = await result.Content.ReadFromJsonAsync<CreateClientResponse>();
+        var createdClient = await result.Content.ReadFromJsonAsync<ClientResponse>();
 
         // Assert
         result.StatusCode.Should().Be(HttpStatusCode.OK);

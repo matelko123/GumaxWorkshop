@@ -1,6 +1,4 @@
-﻿using GumaxWorkshop.Application.Common;
-
-namespace GumaxWorkshop.Application.Exceptions;
+﻿namespace GumaxWorkshop.Application.Common.Exceptions;
 
 public class ValidationException : Exception
 {

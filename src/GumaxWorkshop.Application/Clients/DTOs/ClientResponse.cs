@@ -1,8 +1,8 @@
 ﻿using GumaxWorkshop.Domain.Entities;
 
-namespace GumaxWorkshop.Application.Clients.Commands.Create;
+namespace GumaxWorkshop.Application.Clients.DTOs;
 
-public record CreateClientResponse (
+public record ClientResponse (
     Guid Id,
     ClientType Type,
     string PhoneNumber,
