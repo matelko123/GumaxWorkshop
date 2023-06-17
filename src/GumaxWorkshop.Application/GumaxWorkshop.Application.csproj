@@ -15,10 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Clients\Queries" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\GumaxWorkshop.Domain\GumaxWorkshop.Domain.csproj" />
     </ItemGroup>
 

@@ -33,4 +33,9 @@ public static class ClientMapper
             client.CompanyName,
             client.NIP);
     }
+
+    public static IQueryable<ClientResponse> MapToResponse(this IEnumerable<Client> clients)
+    {
+        return clients.Select(MapToResponse).AsQueryable();
+    }
 }
